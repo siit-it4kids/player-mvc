@@ -1,0 +1,15 @@
+#players{
+    display: flex;
+}
+
+.player{
+    border: 1px solid grey;
+    width: 10rem;
+    text-align: center;
+    background-color: rgb(186, 222, 255);
+    color: rgb(75, 75, 75);
+}
+
+.player img{
+    height: 5rem;
+}
