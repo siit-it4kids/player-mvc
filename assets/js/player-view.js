@@ -1,19 +1,29 @@
 export class PlayerView {
 
     constructor(parentElement, playerModel){
+        this.parentElement = parentElement;
+        this.playerModel = playerModel;
+        this.scoreSpan = null;
+
+        this.createComponent();
+        this.update();
+    }
+
+
+    createComponent(){
         // creates the container
         const container = document.createElement('div');
         container.classList.add('player');
-        parentElement.append(container);
+        this.parentElement.append(container);
 
         // creates the heading
         const header = document.createElement('h2');
-        header.textContent = playerModel.name;
+        header.textContent = this.playerModel.name;
         container.append(header);
 
         // creates the heading
         const avatar = document.createElement('img');
-        avatar.src = playerModel.avatar;
+        avatar.src = this.playerModel.avatar;
         container.append(avatar);
 
         // creates the score section
@@ -25,8 +35,12 @@ export class PlayerView {
         scoreContainer.append(scoreText);
 
         // creates the score span
-        const scoreSpan = document.createElement('span');
-        scoreSpan.textContent = playerModel.score;
-        scoreContainer.append(scoreSpan);
+        this.scoreSpan = document.createElement('span');
+        scoreContainer.append(this.scoreSpan);
+    }
+
+    update(){
+        console.log(`Should update score in UI: ${this.playerModel.score}`);
+        this.scoreSpan.textContent = this.playerModel.score;
     }
 }
